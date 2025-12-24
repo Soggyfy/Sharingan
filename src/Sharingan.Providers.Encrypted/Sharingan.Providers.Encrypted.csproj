@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <PackageId>Sharingan.Providers.Encrypted</PackageId>
-        <Description>Encryption wrapper provider for Sharingan, supporting DPAPI and AES-256-GCM.</Description>
+        <Summary>Encryption wrapper provider for Sharingan</Summary>
+        <Description>Provides transparent encryption for any Sharingan settings provider. Supports multiple encryption strategies including DPAPI (Windows Data Protection API) for machine/user-scoped encryption and AES-256-GCM for cross-platform symmetric encryption. Ideal for storing sensitive settings like API keys, connection strings, and user credentials.</Description>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 

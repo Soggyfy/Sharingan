@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <PackageId>Sharingan.Providers.Xml</PackageId>
-        <Description>XML file settings provider for Sharingan, the cross-platform .NET local settings library.</Description>
+        <Summary>XML file settings provider for Sharingan</Summary>
+        <Description>Stores application settings in XML format. Provides a structured, validated configuration format with support for complex hierarchies, attributes, and namespaces. Familiar format for enterprise applications and legacy system integration. Includes multi-process safety with file locking.</Description>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 

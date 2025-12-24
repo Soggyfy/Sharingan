@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <PackageId>Sharingan.Extensions.Configuration</PackageId>
-        <Description>Microsoft.Extensions.Configuration bridge for Sharingan, the cross-platform .NET local settings library.</Description>
+        <Summary>Microsoft.Extensions.Configuration bridge for Sharingan</Summary>
+        <Description>Provides integration between Sharingan and Microsoft.Extensions.Configuration. Allows using Sharingan settings providers as configuration sources in ASP.NET Core and .NET applications. Supports binding configuration sections to strongly-typed objects and automatic reload on settings changes.</Description>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 

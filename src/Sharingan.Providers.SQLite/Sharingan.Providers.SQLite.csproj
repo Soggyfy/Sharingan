@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <PackageId>Sharingan.Providers.SQLite</PackageId>
-        <Description>SQLite database settings provider for Sharingan, the cross-platform .NET local settings library.</Description>
+        <Summary>SQLite database settings provider for Sharingan</Summary>
+        <Description>Stores application settings in a SQLite database. Provides ACID-compliant storage with excellent performance for large numbers of settings. Supports concurrent access, transactions, and efficient queries. Ideal for applications requiring durable, queryable settings storage with minimal setup.</Description>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 

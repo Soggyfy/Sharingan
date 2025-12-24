@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <PackageId>Sharingan.Providers.Yaml</PackageId>
-        <Description>YAML file settings provider for Sharingan, the cross-platform .NET local settings library.</Description>
+        <Summary>YAML file settings provider for Sharingan</Summary>
+        <Description>Stores application settings in YAML (YAML Ain't Markup Language) format. Provides a clean, readable configuration format with support for complex nested structures, lists, and multi-line strings. Popular choice for cloud-native and DevOps applications. Includes multi-process safety with file locking.</Description>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 

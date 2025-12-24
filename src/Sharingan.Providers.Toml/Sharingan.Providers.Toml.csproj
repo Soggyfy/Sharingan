@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <PackageId>Sharingan.Providers.Toml</PackageId>
-        <Description>TOML file settings provider for Sharingan, the cross-platform .NET local settings library.</Description>
+        <Summary>TOML file settings provider for Sharingan</Summary>
+        <Description>Stores application settings in TOML (Tom's Obvious Minimal Language) format. Provides a clean, human-friendly configuration format with support for tables, arrays, dates, and nested structures. Popular choice for modern applications and developer tools. Includes multi-process safety with file locking.</Description>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 

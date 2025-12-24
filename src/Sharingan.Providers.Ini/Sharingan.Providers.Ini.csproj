@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <PackageId>Sharingan.Providers.Ini</PackageId>
-        <Description>INI file settings provider for Sharingan, the cross-platform .NET local settings library.</Description>
+        <Summary>INI file settings provider for Sharingan</Summary>
+        <Description>Stores application settings in standard INI file format. Supports sections, key-value pairs, comments, and multi-line values. Provides a familiar configuration format that is human-readable and easily editable with any text editor. Includes multi-process safety with file locking.</Description>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 

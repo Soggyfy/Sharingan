@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <PackageId>Sharingan</PackageId>
-        <Description>Cross-platform local settings library for .NET with async-first design, multi-process safety, and pluggable providers.</Description>
+        <Summary>Cross-platform local settings library for .NET</Summary>
+        <Description>Sharingan is a robust, async-first local settings library for .NET applications. Features include multi-process safety with file locking, pluggable storage providers (JSON, InMemory, Environment, Composite), change notifications, and support for application, user, and device-level settings. Works across Windows, Linux, macOS, Android, and iOS.</Description>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 
