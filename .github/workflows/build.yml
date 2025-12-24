@@ -15,7 +15,7 @@ jobs:
         dotnet: ["10.0.x"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
@@ -37,7 +37,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
