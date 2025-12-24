@@ -1,0 +1,66 @@
+name: 📚 Documentation
+description: Report documentation issues or request improvements
+title: "[Docs]: "
+labels: ["documentation"]
+assignees: []
+body:
+    - type: markdown
+      attributes:
+          value: |
+              Help us improve our documentation! Please describe what needs to be updated.
+
+    - type: dropdown
+      id: type
+      attributes:
+          label: Documentation Type
+          description: What type of documentation is affected?
+          options:
+              - README
+              - API Documentation
+              - Code Comments / XML Docs
+              - Samples / Examples
+              - CHANGELOG
+              - CONTRIBUTING Guide
+              - Other
+      validations:
+          required: true
+
+    - type: dropdown
+      id: issue-type
+      attributes:
+          label: Issue Type
+          description: What kind of documentation issue is this?
+          options:
+              - Missing documentation
+              - Incorrect / outdated information
+              - Unclear or confusing
+              - Typo / grammar
+              - Code sample not working
+              - Suggestion for new content
+      validations:
+          required: true
+
+    - type: input
+      id: location
+      attributes:
+          label: Location
+          description: Where is the documentation issue? (file name, URL, or section)
+          placeholder: e.g., README.md#providers or Sharingan.cs line 42
+      validations:
+          required: false
+
+    - type: textarea
+      id: description
+      attributes:
+          label: Description
+          description: Describe the documentation issue or improvement.
+      validations:
+          required: true
+
+    - type: textarea
+      id: suggestion
+      attributes:
+          label: Suggested Fix (Optional)
+          description: If you have a specific suggestion for the documentation, please share.
+      validations:
+          required: false
