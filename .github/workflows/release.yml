@@ -37,7 +37,13 @@ jobs:
 
             - name: Pack
               run: |
-                  $version = "${{ github.event.release.tag_name }}".TrimStart('v')
+                  $tagVersion = "${{ github.event.release.tag_name }}"
+                  $inputVersion = "${{ github.event.inputs.version }}"
+                  if ($inputVersion) {
+                      $version = $inputVersion.TrimStart('v')
+                  } else {
+                      $version = $tagVersion.TrimStart('v')
+                  }
                   dotnet pack --no-build --configuration Release --output ./artifacts -p:PackageVersion=$version
 
             - name: Push to NuGet
