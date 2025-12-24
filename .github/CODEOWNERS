@@ -1,0 +1,36 @@
+# Default owners for everything in the repo
+* @Taiizor
+
+# Core library
+/src/Sharingan/ @Taiizor
+/src/Sharingan.Abstractions/ @Taiizor
+
+# Providers
+/src/Sharingan.Providers.Registry/ @Taiizor
+/src/Sharingan.Providers.Ini/ @Taiizor
+/src/Sharingan.Providers.Yaml/ @Taiizor
+/src/Sharingan.Providers.Xml/ @Taiizor
+/src/Sharingan.Providers.Toml/ @Taiizor
+/src/Sharingan.Providers.SQLite/ @Taiizor
+/src/Sharingan.Providers.Encrypted/ @Taiizor
+
+# Extensions
+/src/Sharingan.Extensions.DependencyInjection/ @Taiizor
+/src/Sharingan.Extensions.Configuration/ @Taiizor
+
+# Tests
+/tests/ @Taiizor
+
+# Samples
+/samples/ @Taiizor
+
+# Build and CI
+/.github/ @Taiizor
+/Directory.Build.props @Taiizor
+/Directory.Build.targets @Taiizor
+*.sln @Taiizor
+*.slnx @Taiizor
+
+# Documentation
+*.md @Taiizor
+/docs/ @Taiizor

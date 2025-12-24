@@ -1,0 +1,142 @@
+# GitHub Labels Configuration
+# Use with: https://github.com/marketplace/actions/github-labeler
+
+# Type labels
+- name: bug
+  color: "d73a4a"
+  description: "Something isn't working"
+
+- name: enhancement
+  color: "a2eeef"
+  description: "New feature or request"
+
+- name: documentation
+  color: "0075ca"
+  description: "Improvements or additions to documentation"
+
+- name: question
+  color: "d876e3"
+  description: "Further information is requested"
+
+# Status labels
+- name: needs-triage
+  color: "fbca04"
+  description: "Needs initial review and categorization"
+
+- name: confirmed
+  color: "0e8a16"
+  description: "Issue has been confirmed and accepted"
+
+- name: in-progress
+  color: "1d76db"
+  description: "Work is in progress"
+
+- name: blocked
+  color: "b60205"
+  description: "Blocked by external factors"
+
+- name: stale
+  color: "ffffff"
+  description: "No recent activity"
+
+# Priority labels
+- name: "priority: critical"
+  color: "b60205"
+  description: "Must be fixed ASAP"
+
+- name: "priority: high"
+  color: "d93f0b"
+  description: "High priority issue"
+
+- name: "priority: medium"
+  color: "fbca04"
+  description: "Medium priority issue"
+
+- name: "priority: low"
+  color: "0e8a16"
+  description: "Low priority issue"
+
+# Package labels
+- name: "pkg: core"
+  color: "5319e7"
+  description: "Related to Sharingan core package"
+
+- name: "pkg: abstractions"
+  color: "5319e7"
+  description: "Related to Sharingan.Abstractions"
+
+- name: "pkg: providers"
+  color: "5319e7"
+  description: "Related to provider packages"
+
+- name: "pkg: extensions"
+  color: "5319e7"
+  description: "Related to extension packages"
+
+# Platform labels
+- name: "platform: windows"
+  color: "006b75"
+  description: "Windows-specific"
+
+- name: "platform: linux"
+  color: "006b75"
+  description: "Linux-specific"
+
+- name: "platform: macos"
+  color: "006b75"
+  description: "macOS-specific"
+
+- name: "platform: mobile"
+  color: "006b75"
+  description: "Android/iOS specific"
+
+# Contribution labels
+- name: "good first issue"
+  color: "7057ff"
+  description: "Good for newcomers"
+
+- name: "help wanted"
+  color: "008672"
+  description: "Extra attention is needed"
+
+# Dependency labels
+- name: dependencies
+  color: "0366d6"
+  description: "Pull requests that update a dependency file"
+
+- name: nuget
+  color: "004880"
+  description: "NuGet package updates"
+
+- name: github-actions
+  color: "000000"
+  description: "GitHub Actions updates"
+
+# Other labels
+- name: duplicate
+  color: "cfd3d7"
+  description: "This issue or pull request already exists"
+
+- name: invalid
+  color: "e4e669"
+  description: "This doesn't seem right"
+
+- name: wontfix
+  color: "ffffff"
+  description: "This will not be worked on"
+
+- name: pinned
+  color: "006b75"
+  description: "Pinned issue, will not go stale"
+
+- name: security
+  color: "d73a4a"
+  description: "Security-related issue"
+
+- name: breaking-change
+  color: "b60205"
+  description: "Introduces breaking changes"
+
+- name: performance
+  color: "f9d0c4"
+  description: "Performance-related"
