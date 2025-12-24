@@ -59,19 +59,20 @@ jobs:
                   }
 
             - name: Upload packages to GitHub Release
-              if: github.event_name == 'release'
               uses: softprops/action-gh-release@v2
               with:
+                  tag_name: ${{ github.event.release.tag_name || format('v{0}', github.event.inputs.version) }}
                   files: |
                       ./artifacts/*.nupkg
                       ./artifacts/*.snupkg
 
             - name: Update release description
-              if: github.event_name == 'release' && github.event.release.body == ''
+              if: (github.event_name == 'release' && github.event.release.body == '') || github.event_name == 'workflow_dispatch'
               uses: softprops/action-gh-release@v2
               with:
+                  tag_name: ${{ github.event.release.tag_name || format('v{0}', github.event.inputs.version) }}
                   body: |
-                      ## 📦 Sharingan ${{ github.event.release.tag_name }}
+                      ## 📦 Sharingan ${{ github.event.release.tag_name || format('v{0}', github.event.inputs.version) }}
 
                       **Cross-Platform Local Settings Library for .NET**
 
@@ -82,7 +83,7 @@ jobs:
                       ### 📥 Installation
 
                       ```bash
-                      dotnet add package Sharingan --version ${{ github.event.release.tag_name }}
+                      dotnet add package Sharingan --version ${{ github.event.inputs.version || github.event.release.tag_name }}
                       ```
 
                       ---
