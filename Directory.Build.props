@@ -14,7 +14,7 @@
 
     <!-- Package metadata -->
     <PropertyGroup>
-        <Version>1.0.3</Version>
+        <Version>1.0.4</Version>
         <Authors>Taiizor</Authors>
         <Owners>$(Authors)</Owners>
         <Company>$(Authors)</Company>
@@ -29,7 +29,7 @@
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageIcon>Sharingan.png</PackageIcon>
         <PackageReadmeFile>NUGET_README.md</PackageReadmeFile>
-        <PackageTags>settings;configuration;local-settings;preferences;cross-platform;dotnet;async;json;xml;yaml;toml;ini;sqlite;registry;encrypted;encryption;dpapi;aes;dependency-injection;di;options;multi-process;file-locking;windows;linux;macos;android;ios</PackageTags>
+        <PackageTags>sharingan;settings;configuration;local-settings;preferences;cross-platform;dotnet;async;json;xml;yaml;toml;ini;sqlite;registry;encrypted;encryption;dpapi;aes;dependency-injection;di;options;multi-process;file-locking;windows;linux;macos;android;ios</PackageTags>
     </PropertyGroup>
 
     <!-- Deterministic builds & SourceLink -->
