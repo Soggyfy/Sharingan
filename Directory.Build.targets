@@ -2,6 +2,6 @@
     <!-- Include package assets -->
     <ItemGroup>
         <None Include="$(MSBuildThisFileDirectory)assets/Sharingan.png" Pack="true" PackagePath="" Visible="false" />
-        <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="" Visible="false" />
+        <None Include="$(MSBuildThisFileDirectory)NUGET_README.md" Pack="true" PackagePath="" Visible="false" />
     </ItemGroup>
 </Project>
