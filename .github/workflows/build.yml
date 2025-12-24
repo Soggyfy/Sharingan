@@ -1,54 +1,69 @@
 name: Build
 
 on:
-  push:
-    branches: [develop]
-  pull_request:
-    branches: [develop]
+    push:
+        branches: [develop]
+    pull_request:
+        branches: [develop]
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        dotnet: ["10.0.x"]
+    build:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest, windows-latest, macos-latest]
+                dotnet: ["10.0.x"]
 
-    steps:
-      - uses: actions/checkout@v6
+        steps:
+            - uses: actions/checkout@v6
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v5
-        with:
-          dotnet-version: ${{ matrix.dotnet }}
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v5
+              with:
+                  dotnet-version: ${{ matrix.dotnet }}
 
-      - name: Restore dependencies
-        run: dotnet restore
+            - name: Restore dependencies
+              run: dotnet restore
 
-      - name: Build
-        run: dotnet build --no-restore --configuration Release
+            # Windows: Build all targets including .NET Framework
+            - name: Build (Windows - All Targets)
+              if: runner.os == 'Windows'
+              run: dotnet build --no-restore --configuration Release
 
-      - name: Test
-        run: dotnet test --no-build --configuration Release --verbosity normal
+            # Linux/macOS: Build only cross-platform targets
+            - name: Build (Linux/macOS - Cross-Platform Targets)
+              if: runner.os != 'Windows'
+              run: dotnet build --no-restore --configuration Release -p:TargetFrameworks="netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0"
 
-  pack:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+            # Windows: Test all targets
+            - name: Test (Windows - All Targets)
+              if: runner.os == 'Windows'
+              run: dotnet test --no-build --configuration Release --verbosity normal
 
-    steps:
-      - uses: actions/checkout@v6
+            # Linux/macOS: Test only cross-platform targets
+            - name: Test (Linux/macOS - Cross-Platform Targets)
+              if: runner.os != 'Windows'
+              run: dotnet test --no-build --configuration Release --verbosity normal
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v5
-        with:
-          dotnet-version: "10.0.x"
+    pack:
+        needs: build
+        runs-on: ubuntu-latest
+        if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
 
-      - name: Pack
-        run: dotnet pack --configuration Release --output ./artifacts
+        steps:
+            - uses: actions/checkout@v6
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v6
-        with:
-          name: nuget-packages
-          path: ./artifacts/*.nupkg
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v5
+              with:
+                  dotnet-version: "10.0.x"
+
+            - name: Pack
+              run: dotnet pack --configuration Release --output ./artifacts
+
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v6
+              with:
+                  name: nuget-packages
+                  path: ./artifacts/*.nupkg

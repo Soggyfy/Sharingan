@@ -10,7 +10,8 @@ permissions:
 
 jobs:
     publish:
-        runs-on: ubuntu-latest
+        # Use Windows runner to support .NET Framework 4.8/4.8.1 targets
+        runs-on: windows-latest
 
         steps:
             - uses: actions/checkout@v6
