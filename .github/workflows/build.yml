@@ -23,32 +23,50 @@ jobs:
               with:
                   dotnet-version: ${{ matrix.dotnet }}
 
-            - name: Restore dependencies
-              run: dotnet restore
-
-            # Windows: Build all targets including .NET Framework
+            # Windows: Build all targets including .NET Framework and Windows-specific projects
             - name: Build (Windows - All Targets)
               if: runner.os == 'Windows'
-              run: dotnet build --no-restore --configuration Release
+              run: dotnet build --configuration Release
 
-            # Linux/macOS: Build only cross-platform targets
+            # Linux/macOS: Exclude Windows-only projects and .NET Framework targets
             - name: Build (Linux/macOS - Cross-Platform Targets)
               if: runner.os != 'Windows'
-              run: dotnet build --no-restore --configuration Release -p:TargetFrameworks="netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0"
+              run: |
+                  # Build cross-platform projects individually (excluding Registry which is Windows-only)
+                  dotnet build src/Sharingan.Abstractions/Sharingan.Abstractions.csproj --configuration Release -p:TargetFrameworks="netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0"
+                  dotnet build src/Sharingan/Sharingan.csproj --configuration Release -p:TargetFrameworks="netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0"
+                  dotnet build src/Sharingan.Providers.Ini/Sharingan.Providers.Ini.csproj --configuration Release -p:TargetFrameworks="netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0"
+                  dotnet build src/Sharingan.Providers.Yaml/Sharingan.Providers.Yaml.csproj --configuration Release -p:TargetFrameworks="netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0"
+                  dotnet build src/Sharingan.Providers.Xml/Sharingan.Providers.Xml.csproj --configuration Release -p:TargetFrameworks="netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0"
+                  dotnet build src/Sharingan.Providers.Toml/Sharingan.Providers.Toml.csproj --configuration Release -p:TargetFrameworks="netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0"
+                  dotnet build src/Sharingan.Providers.SQLite/Sharingan.Providers.SQLite.csproj --configuration Release -p:TargetFrameworks="netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0"
+                  dotnet build src/Sharingan.Providers.Encrypted/Sharingan.Providers.Encrypted.csproj --configuration Release -p:TargetFrameworks="netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0"
+                  dotnet build src/Sharingan.Extensions.DependencyInjection/Sharingan.Extensions.DependencyInjection.csproj --configuration Release -p:TargetFrameworks="netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0"
+                  dotnet build src/Sharingan.Extensions.Configuration/Sharingan.Extensions.Configuration.csproj --configuration Release -p:TargetFrameworks="netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0"
 
             # Windows: Test all targets
-            - name: Test (Windows - All Targets)
+            - name: Test (Windows)
               if: runner.os == 'Windows'
-              run: dotnet test --no-build --configuration Release --verbosity normal
+              run: dotnet test --configuration Release --verbosity normal
 
-            # Linux/macOS: Test only cross-platform targets
-            - name: Test (Linux/macOS - Cross-Platform Targets)
+            # Linux/macOS: Test cross-platform projects only
+            - name: Test (Linux/macOS)
               if: runner.os != 'Windows'
-              run: dotnet test --no-build --configuration Release --verbosity normal
+              run: |
+                  dotnet test tests/Sharingan.Tests/Sharingan.Tests.csproj --configuration Release --verbosity normal
+                  dotnet test tests/Sharingan.Providers.Ini.Tests/Sharingan.Providers.Ini.Tests.csproj --configuration Release --verbosity normal
+                  dotnet test tests/Sharingan.Providers.Yaml.Tests/Sharingan.Providers.Yaml.Tests.csproj --configuration Release --verbosity normal
+                  dotnet test tests/Sharingan.Providers.Xml.Tests/Sharingan.Providers.Xml.Tests.csproj --configuration Release --verbosity normal
+                  dotnet test tests/Sharingan.Providers.Toml.Tests/Sharingan.Providers.Toml.Tests.csproj --configuration Release --verbosity normal
+                  dotnet test tests/Sharingan.Providers.SQLite.Tests/Sharingan.Providers.SQLite.Tests.csproj --configuration Release --verbosity normal
+                  dotnet test tests/Sharingan.Providers.Encrypted.Tests/Sharingan.Providers.Encrypted.Tests.csproj --configuration Release --verbosity normal
+                  dotnet test tests/Sharingan.Extensions.DependencyInjection.Tests/Sharingan.Extensions.DependencyInjection.Tests.csproj --configuration Release --verbosity normal
+                  dotnet test tests/Sharingan.Extensions.Configuration.Tests/Sharingan.Extensions.Configuration.Tests.csproj --configuration Release --verbosity normal
 
     pack:
         needs: build
-        runs-on: ubuntu-latest
+        # Use Windows to support all targets including .NET Framework and Registry provider
+        runs-on: windows-latest
         if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
 
         steps:
