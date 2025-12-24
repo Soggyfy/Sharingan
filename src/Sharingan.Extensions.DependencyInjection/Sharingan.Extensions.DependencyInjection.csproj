@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <PackageId>Sharingan.Extensions.DependencyInjection</PackageId>
-        <Description>Microsoft.Extensions.DependencyInjection integration for Sharingan, the cross-platform .NET local settings library.</Description>
+        <Summary>Dependency injection support for Sharingan</Summary>
+        <Description>Provides Microsoft.Extensions.DependencyInjection integration for Sharingan. Includes extension methods for registering settings providers and stores with IServiceCollection, enabling easy integration with ASP.NET Core, Worker Services, and other DI-enabled .NET applications.</Description>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 
