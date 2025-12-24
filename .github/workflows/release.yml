@@ -59,6 +59,7 @@ jobs:
                   }
 
             - name: Upload packages to GitHub Release
+              if: github.event_name == 'release'
               uses: softprops/action-gh-release@v2
               with:
                   files: |
@@ -66,7 +67,7 @@ jobs:
                       ./artifacts/*.snupkg
 
             - name: Update release description
-              if: github.event.release.body == ''
+              if: github.event_name == 'release' && github.event.release.body == ''
               uses: softprops/action-gh-release@v2
               with:
                   body: |
