@@ -36,6 +36,7 @@ jobs:
               run: dotnet test --no-build --configuration Release
 
             - name: Pack
+              id: pack
               run: |
                   $tagVersion = "${{ github.event.release.tag_name }}"
                   $inputVersion = "${{ github.event.inputs.version }}"
@@ -44,6 +45,7 @@ jobs:
                   } else {
                       $version = $tagVersion.TrimStart('v')
                   }
+                  echo "VERSION=$version" >> $env:GITHUB_ENV
                   dotnet pack --no-build --configuration Release --output ./artifacts -p:PackageVersion=$version
 
             - name: Push to NuGet
@@ -83,7 +85,7 @@ jobs:
                       ### 📥 Installation
 
                       ```bash
-                      dotnet add package Sharingan --version ${{ github.event.inputs.version || github.event.release.tag_name }}
+                      dotnet add package Sharingan --version ${{ github.event.inputs.version || (startsWith(github.event.release.tag_name, 'v') && substring(github.event.release.tag_name, 1)) || github.event.release.tag_name }}
                       ```
 
                       ---
