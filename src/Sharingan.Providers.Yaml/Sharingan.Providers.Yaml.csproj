@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>Sharingan.Providers.Yaml</PackageId>
+        <Description>YAML file settings provider for Sharingan, the cross-platform .NET local settings library.</Description>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Sharingan\Sharingan.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="YamlDotNet" Version="16.2.1" />
+    </ItemGroup>
+
+</Project>

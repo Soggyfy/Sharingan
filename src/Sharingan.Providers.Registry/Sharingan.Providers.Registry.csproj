@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <!-- Windows-only provider -->
+        <TargetFrameworks>net48;net481;net7.0-windows;net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
+        <PackageId>Sharingan.Providers.Registry</PackageId>
+        <Description>Windows Registry settings provider for Sharingan, the cross-platform .NET local settings library.</Description>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Sharingan\Sharingan.csproj" />
+    </ItemGroup>
+
+</Project>

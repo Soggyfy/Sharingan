@@ -1,0 +1,59 @@
+<Project>
+    <!-- Shared properties for all projects -->
+    <PropertyGroup>
+        <TargetFrameworks>net48;net481;netstandard2.0;netstandard2.1;net7.0;net8.0;net9.0;net10.0</TargetFrameworks>
+        <LangVersion>preview</LangVersion>
+        <AnalysisLevel>preview</AnalysisLevel>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DefaultLanguage>en-GB</DefaultLanguage>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <NoWarn>$(NoWarn);CS1591;CS0067;CS8603;CS8601;CS8602</NoWarn>
+    </PropertyGroup>
+
+    <!-- Package metadata -->
+    <PropertyGroup>
+        <Version>1.0.1</Version>
+        <Authors>Taiizor</Authors>
+        <Owners>$(Authors)</Owners>
+        <Company>$(Authors)</Company>
+        <FileVersion>$(Version)</FileVersion>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <NeutralLanguage>$(DefaultLanguage)</NeutralLanguage>
+        <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors). All rights reserved.</Copyright>
+        <PackageProjectUrl>https://github.com/Taiizor/Sharingan</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Taiizor/Sharingan</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageIcon>Sharingan.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>settings;configuration;local-settings;preferences;cross-platform;dotnet</PackageTags>
+    </PropertyGroup>
+
+    <!-- Deterministic builds & SourceLink -->
+    <PropertyGroup>
+        <Deterministic>true</Deterministic>
+        <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    </PropertyGroup>
+
+    <!-- SourceLink for GitHub -->
+    <ItemGroup>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+    </ItemGroup>
+
+    <!-- Conditional compilation symbols -->
+    <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net7.0'))">
+        <DefineConstants>$(DefineConstants);NET7_0_OR_GREATER</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'net48' Or '$(TargetFramework)' == 'net481'">
+        <DefineConstants>$(DefineConstants);LEGACY_FRAMEWORK</DefineConstants>
+    </PropertyGroup>
+
+</Project>

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>Sharingan.Extensions.Configuration</PackageId>
+        <Description>Microsoft.Extensions.Configuration bridge for Sharingan, the cross-platform .NET local settings library.</Description>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Sharingan\Sharingan.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.0" />
+    </ItemGroup>
+
+</Project>

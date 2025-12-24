@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>Sharingan.Providers.Encrypted</PackageId>
+        <Description>Encryption wrapper provider for Sharingan, supporting DPAPI and AES-256-GCM.</Description>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Sharingan\Sharingan.csproj" />
+    </ItemGroup>
+
+    <!-- Optional DPAPI support for Windows -->
+    <ItemGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net7.0'))">
+        <PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="9.0.0" />
+    </ItemGroup>
+
+</Project>

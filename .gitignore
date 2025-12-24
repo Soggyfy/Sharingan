@@ -1,0 +1,35 @@
+# Sharingan - Generated files
+**/bin/
+**/obj/
+
+# IDE files
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Test results
+TestResults/
+*.trx
+coverage*.xml
+coverage*.json
+
+# NuGet
+*.nupkg
+*.snupkg
+
+# Build
+artifacts/
+packages/
+
+# Rider
+.idea/
+*.DotSettings.user
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

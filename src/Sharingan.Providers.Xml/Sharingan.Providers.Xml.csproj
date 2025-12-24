@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>Sharingan.Providers.Xml</PackageId>
+        <Description>XML file settings provider for Sharingan, the cross-platform .NET local settings library.</Description>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Sharingan\Sharingan.csproj" />
+    </ItemGroup>
+
+</Project>

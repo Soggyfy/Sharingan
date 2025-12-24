@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>Sharingan</PackageId>
+        <Description>Cross-platform local settings library for .NET with async-first design, multi-process safety, and pluggable providers.</Description>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Sharingan.Abstractions\Sharingan.Abstractions.csproj" />
+    </ItemGroup>
+
+    <!-- Polyfills for older frameworks -->
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'net48' Or '$(TargetFramework)' == 'net481'">
+        <PackageReference Include="System.Text.Json" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="9.0.0" />
+        <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+        <PackageReference Include="System.Text.Json" Version="9.0.0" />
+    </ItemGroup>
+
+</Project>

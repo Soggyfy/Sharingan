@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>Sharingan.Abstractions</PackageId>
+        <Description>Core interfaces and abstractions for Sharingan, the cross-platform .NET local settings library.</Description>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+</Project>

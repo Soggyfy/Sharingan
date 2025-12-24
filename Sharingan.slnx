@@ -1,0 +1,52 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/samples/">
+    <Project Path="samples/Sharingan.Sample.Configuration/Sharingan.Sample.Configuration.csproj" />
+    <Project Path="samples/Sharingan.Sample.Console/Sharingan.Sample.Console.csproj" />
+    <Project Path="samples/Sharingan.Sample.DependencyInjection/Sharingan.Sample.DependencyInjection.csproj" />
+    <Project Path="samples/Sharingan.Sample.Encrypted/Sharingan.Sample.Encrypted.csproj" />
+    <Project Path="samples/Sharingan.Sample.Ini/Sharingan.Sample.Ini.csproj" />
+    <Project Path="samples/Sharingan.Sample.MultiProcess/Sharingan.Sample.MultiProcess.csproj" />
+    <Project Path="samples/Sharingan.Sample.Registry/Sharingan.Sample.Registry.csproj" />
+    <Project Path="samples/Sharingan.Sample.SQLite/Sharingan.Sample.SQLite.csproj" />
+    <Project Path="samples/Sharingan.Sample.Toml/Sharingan.Sample.Toml.csproj" />
+    <Project Path="samples/Sharingan.Sample.Xml/Sharingan.Sample.Xml.csproj" />
+    <Project Path="samples/Sharingan.Sample.Yaml/Sharingan.Sample.Yaml.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Build.targets" />
+    <File Path="global.json" />
+    <File Path="NuGet.Config" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Sharingan.Abstractions/Sharingan.Abstractions.csproj" />
+    <Project Path="src/Sharingan.Extensions.Configuration/Sharingan.Extensions.Configuration.csproj" />
+    <Project Path="src/Sharingan.Extensions.DependencyInjection/Sharingan.Extensions.DependencyInjection.csproj" />
+    <Project Path="src/Sharingan.Providers.Encrypted/Sharingan.Providers.Encrypted.csproj" />
+    <Project Path="src/Sharingan.Providers.Ini/Sharingan.Providers.Ini.csproj" />
+    <Project Path="src/Sharingan.Providers.Registry/Sharingan.Providers.Registry.csproj" />
+    <Project Path="src/Sharingan.Providers.SQLite/Sharingan.Providers.SQLite.csproj" />
+    <Project Path="src/Sharingan.Providers.Toml/Sharingan.Providers.Toml.csproj" />
+    <Project Path="src/Sharingan.Providers.Xml/Sharingan.Providers.Xml.csproj" />
+    <Project Path="src/Sharingan.Providers.Yaml/Sharingan.Providers.Yaml.csproj" />
+    <Project Path="src/Sharingan/Sharingan.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Sharingan.Extensions.Configuration.Tests/Sharingan.Extensions.Configuration.Tests.csproj" />
+    <Project Path="tests/Sharingan.Extensions.DependencyInjection.Tests/Sharingan.Extensions.DependencyInjection.Tests.csproj" />
+    <Project Path="tests/Sharingan.Providers.Encrypted.Tests/Sharingan.Providers.Encrypted.Tests.csproj" />
+    <Project Path="tests/Sharingan.Providers.Ini.Tests/Sharingan.Providers.Ini.Tests.csproj" />
+    <Project Path="tests/Sharingan.Providers.Registry.Tests/Sharingan.Providers.Registry.Tests.csproj" />
+    <Project Path="tests/Sharingan.Providers.SQLite.Tests/Sharingan.Providers.SQLite.Tests.csproj" />
+    <Project Path="tests/Sharingan.Providers.Toml.Tests/Sharingan.Providers.Toml.Tests.csproj" />
+    <Project Path="tests/Sharingan.Providers.Xml.Tests/Sharingan.Providers.Xml.Tests.csproj" />
+    <Project Path="tests/Sharingan.Providers.Yaml.Tests/Sharingan.Providers.Yaml.Tests.csproj" />
+    <Project Path="tests/Sharingan.Tests/Sharingan.Tests.csproj" />
+  </Folder>
+</Solution>
