@@ -135,6 +135,6 @@ jobs:
 
                       ### 🔗 Links
 
-                      - [📖 Documentation](https://github.com/${{ github.repository }})
                       - [📦 NuGet](https://www.nuget.org/packages/Sharingan)
                       - [📝 Changelog](https://github.com/${{ github.repository }}/blob/develop/CHANGELOG.md)
+                      - [📖 Documentation](https://github.com/${{ github.repository }})
