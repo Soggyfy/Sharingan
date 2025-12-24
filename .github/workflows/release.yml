@@ -1,115 +1,115 @@
 name: Release
 
 on:
-  release:
-    types: [published]
+    release:
+        types: [published]
 
 permissions:
-  contents: write
-  packages: write
+    contents: write
+    packages: write
 
 jobs:
-  publish:
-    runs-on: ubuntu-latest
+    publish:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+        steps:
+            - uses: actions/checkout@v4
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: "10.0.x"
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: "10.0.x"
 
-      - name: Build
-        run: dotnet build --configuration Release
+            - name: Build
+              run: dotnet build --configuration Release
 
-      - name: Test
-        run: dotnet test --configuration Release
+            - name: Test
+              run: dotnet test --configuration Release
 
-      - name: Pack
-        run: dotnet pack --configuration Release --output ./artifacts -p:PackageVersion=${{ github.event.release.tag_name }}
+            - name: Pack
+              run: dotnet pack --configuration Release --output ./artifacts -p:PackageVersion=${{ github.event.release.tag_name }}
 
-      - name: Push to NuGet
-        run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+            - name: Push to NuGet
+              run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
-      - name: Push to GitHub Packages
-        run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --skip-duplicate
+            - name: Push to GitHub Packages
+              run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --skip-duplicate
 
-      - name: Upload packages to GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            ./artifacts/*.nupkg
-            ./artifacts/*.snupkg
+            - name: Upload packages to GitHub Release
+              uses: softprops/action-gh-release@v2
+              with:
+                  files: |
+                      ./artifacts/*.nupkg
+                      ./artifacts/*.snupkg
 
-      - name: Update release description
-        if: github.event.release.body == ''
-        uses: softprops/action-gh-release@v2
-        with:
-          body: |
-            ## 📦 Sharingan ${{ github.event.release.tag_name }}
+            - name: Update release description
+              if: github.event.release.body == ''
+              uses: softprops/action-gh-release@v2
+              with:
+                  body: |
+                      ## 📦 Sharingan ${{ github.event.release.tag_name }}
 
-            **Cross-Platform Local Settings Library for .NET**
+                      **Cross-Platform Local Settings Library for .NET**
 
-            A robust, multi-process-safe, async-first settings library for managing application, user, and device settings locally.
+                      A robust, multi-process-safe, async-first settings library for managing application, user, and device settings locally.
 
-            ---
+                      ---
 
-            ### 📥 Installation
+                      ### 📥 Installation
 
-            ```bash
-            dotnet add package Sharingan --version ${{ github.event.release.tag_name }}
-            ```
+                      ```bash
+                      dotnet add package Sharingan --version ${{ github.event.release.tag_name }}
+                      ```
 
-            ---
+                      ---
 
-            ### 📋 Packages
+                      ### 📋 Packages
 
-            | Package | Description |
-            |---------|-------------|
-            | `Sharingan` | Core library with JSON, InMemory, Environment, and Composite providers |
-            | `Sharingan.Abstractions` | Core interfaces and abstractions |
-            | `Sharingan.Providers.Registry` | Windows Registry provider |
-            | `Sharingan.Providers.Ini` | INI file provider |
-            | `Sharingan.Providers.Yaml` | YAML file provider |
-            | `Sharingan.Providers.Xml` | XML file provider |
-            | `Sharingan.Providers.Toml` | TOML file provider |
-            | `Sharingan.Providers.SQLite` | SQLite database provider |
-            | `Sharingan.Providers.Encrypted` | Encryption wrapper provider |
-            | `Sharingan.Extensions.DependencyInjection` | Microsoft DI integration |
-            | `Sharingan.Extensions.Configuration` | Microsoft.Extensions.Configuration bridge |
+                      | Package | Description |
+                      |---------|-------------|
+                      | `Sharingan` | Core library with JSON, InMemory, Environment, and Composite providers |
+                      | `Sharingan.Abstractions` | Core interfaces and abstractions |
+                      | `Sharingan.Providers.Registry` | Windows Registry provider |
+                      | `Sharingan.Providers.Ini` | INI file provider |
+                      | `Sharingan.Providers.Yaml` | YAML file provider |
+                      | `Sharingan.Providers.Xml` | XML file provider |
+                      | `Sharingan.Providers.Toml` | TOML file provider |
+                      | `Sharingan.Providers.SQLite` | SQLite database provider |
+                      | `Sharingan.Providers.Encrypted` | Encryption wrapper provider |
+                      | `Sharingan.Extensions.DependencyInjection` | Microsoft DI integration |
+                      | `Sharingan.Extensions.Configuration` | Microsoft.Extensions.Configuration bridge |
 
-            ---
+                      ---
 
-            ### 🎯 Supported Frameworks
+                      ### 🎯 Supported Frameworks
 
-            | Framework | Support |
-            |-----------|---------|
-            | .NET Framework 4.8 | ✅ |
-            | .NET Framework 4.8.1 | ✅ |
-            | .NET Standard 2.0 | ✅ |
-            | .NET Standard 2.1 | ✅ |
-            | .NET 7.0 | ✅ |
-            | .NET 8.0 | ✅ |
-            | .NET 9.0 | ✅ |
-            | .NET 10.0 | ✅ |
+                      | Framework | Support |
+                      |-----------|---------|
+                      | .NET Framework 4.8 | ✅ |
+                      | .NET Framework 4.8.1 | ✅ |
+                      | .NET Standard 2.0 | ✅ |
+                      | .NET Standard 2.1 | ✅ |
+                      | .NET 7.0 | ✅ |
+                      | .NET 8.0 | ✅ |
+                      | .NET 9.0 | ✅ |
+                      | .NET 10.0 | ✅ |
 
-            ---
+                      ---
 
-            ### 🌐 Supported Platforms
+                      ### 🌐 Supported Platforms
 
-            | Platform | Support |
-            |----------|---------|
-            | Windows | ✅ |
-            | Linux | ✅ |
-            | macOS | ✅ |
-            | Android | ✅ |
-            | iOS | ✅ |
+                      | Platform | Support |
+                      |----------|---------|
+                      | Windows | ✅ |
+                      | Linux | ✅ |
+                      | macOS | ✅ |
+                      | Android | ✅ |
+                      | iOS | ✅ |
 
-            ---
+                      ---
 
-            ### 🔗 Links
+                      ### 🔗 Links
 
-            - [📖 Documentation](https://github.com/${{ github.repository }})
-            - [📦 NuGet](https://www.nuget.org/packages/Sharingan)
-            - [📝 Changelog](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md)
+                      - [📖 Documentation](https://github.com/${{ github.repository }})
+                      - [📦 NuGet](https://www.nuget.org/packages/Sharingan)
+                      - [📝 Changelog](https://github.com/${{ github.repository }}/blob/develop/CHANGELOG.md)
