@@ -29,7 +29,7 @@
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageIcon>Sharingan.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageTags>settings;configuration;local-settings;preferences;cross-platform;dotnet</PackageTags>
+        <PackageTags>settings;configuration;local-settings;preferences;cross-platform;dotnet;async;json;xml;yaml;toml;ini;sqlite;registry;encrypted;encryption;dpapi;aes;dependency-injection;di;options;multi-process;file-locking;windows;linux;macos;android;ios</PackageTags>
     </PropertyGroup>
 
     <!-- Deterministic builds & SourceLink -->
